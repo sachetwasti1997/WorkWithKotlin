@@ -6,7 +6,7 @@ class CloneGraph {
     fun cloneGraph(node: Node?): Node? {
         if (node == null)return null
         val visited = HashMap<Int?, Node?>()
-        var que = LinkedList<Node?>()
+        val que = LinkedList<Node?>()
         que.add(node)
         while (!que.isEmpty()){
             val temp = que.poll()

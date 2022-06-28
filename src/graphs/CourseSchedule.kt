@@ -12,7 +12,7 @@ class CourseSchedule {
         fun dfsCycle(node: Int): Boolean{
             visited.add(node)
             isBeingVisited.add(node)
-            for(i in graph[node] ?: ArrayList()){
+            for(i in graph[node].orEmpty()){
                 if(!visited.contains(i) && dfsCycle(i))return true
                 else if(isBeingVisited.contains(i))return true
             }
