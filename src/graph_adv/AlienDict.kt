@@ -21,7 +21,9 @@ class AlienDict {
                 if(k == w2.length)return ""
                 if(k < w2.length && w1[k] != w2[k]){
                     charMap[w1[k]]?.next = charMap[w2[k]]
-                    charMap[w1[k]]?.length = (charMap[w1[k]]?.length ?: 0) + (charMap[w2[k]]?.length ?: 0)
+                    val l1 = charMap[w1[k]]?.length ?: 0
+                    val l2 = charMap[w2[k]]?.length ?: 0
+                    charMap[w1[k]]?.length = l1 + l2
                     break
                 }
             }
@@ -39,6 +41,7 @@ class AlienDict {
             }
             list = list.next
         }
+        println(charMap)
         return res
     }
 }
