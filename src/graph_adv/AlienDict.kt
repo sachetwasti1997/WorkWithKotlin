@@ -24,7 +24,7 @@ class AlienDict {
         fun dfs(c: Char): Boolean{
             beingVisited.add(c)
             visited.add(c)
-            for(i in charMap[c] ?: ArrayList()){
+            for(i in charMap[c].orEmpty()){
                 if(!visited.contains(i) && dfs(i)) return true
                 else if(beingVisited.contains(i))return true
             }
