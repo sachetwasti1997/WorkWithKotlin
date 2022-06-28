@@ -11,7 +11,7 @@ class CloneGraph {
         while (!que.isEmpty()){
             val temp = que.poll()
             if (visited[temp?.`val`] == null)visited[temp?.`val`] = temp?.`val`?.let { Node(it) }
-            for (i in temp?.neighbors ?: ArrayList()){
+            for (i in temp?.neighbors.orEmpty()){
                 if (visited[i?.`val`] == null) {
                     val n = i?.`val`?.let { Node(it) }
                     visited[i?.`val`] = n
