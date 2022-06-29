@@ -22,13 +22,13 @@ class RottenOranges {
                 }
             }
         }
-        val dir = arrayOf(intArrayOf(1, 0),intArrayOf(0, 1),intArrayOf(0, -1),intArrayOf(-1, 0))
+        val dir = arrayOf(1 to 0,0 to 1,0 to -1,-1 to 0)
         var maxTime = 0
         while(!que.isEmpty()){
             val t = que.removeFirst()
             for(d in dir){
-                val row = t.i + d[0]
-                val col = t.j + d[1]
+                val row = t.i + d.first
+                val col = t.j + d.second
                 if(row >=0 && col >= 0 && row < r && col < c && newGrid[row][col] > t.time + 1){
                     newGrid[row][col] = t.time+1
                     oneCount --
@@ -46,9 +46,9 @@ class RottenOranges {
 
 fun main(){
     val grid = arrayOf(
-        intArrayOf(0, 2),
-//        intArrayOf(1, 1, 0),
-//        intArrayOf(1, 0, 1)
+        intArrayOf(0, 2, 0),
+        intArrayOf(1, 1, 0),
+        intArrayOf(1, 0, 1)
     )
     val r = RottenOranges()
     println(r.orangesRotting(grid))
